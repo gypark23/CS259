@@ -2,7 +2,7 @@ import plotly.express as px
 import json
 import plotly.graph_objects as go
 import pandas as pd
-
+from fpdf import FPDF
 location_data = open('data/location_history.json')
 location_dict = json.load(location_data)
 location_list = location_dict["Location History"]
@@ -47,3 +47,18 @@ fig3.show()
 fig3.write_image("pics/world.png", scale = 5)
 #print(results)
 
+
+pdf = FPDF()
+pdf.add_page()
+pdf.set_font('Arial', 'B', 16)
+pdf.cell(0,20, border = 1, ln = 1, txt='We know from where to where you traveled!', align = 'C')
+pdf.set_font('Arial',size=12)
+pdf.cell(0,20, ln=1, txt = "Let us show the route you took for your travel!!!")
+pdf.cell(0,20, border = 1, ln=1, txt = "Hyde Park")
+pdf.image("pics/hydepark.png", w=175, h=75)
+pdf.cell(0,20, border = 1, ln=1, txt = "Chicago")
+pdf.image("pics/chicago.png", w=175, h=75)
+pdf.add_page()
+pdf.cell(0,20, border = 1, ln=1, txt = "World")
+pdf.image("pics/world.png", w=175, h=75)
+pdf.output("data_fun_visualization_privacy.pdf")
