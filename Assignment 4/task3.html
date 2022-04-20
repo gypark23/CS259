@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Choose between two options!</title>
+<!--https://www.studytonight.com/css-howtos/how-to-style-text-button-with-css-->
+<style>
+    
+    input {
+       background: none;
+       border: none;
+       text-decoration: none;
+    }
+    button:hover {
+      background-color: yellow;
+      color:red;
+      font-weight:bold;
+    }
+    button {
+      color: blue;
+      font-size: 20px;
+      font-family: "Comic Sans MS";
+    }
+    h1, p{
+        font-family: "Comic Sans MS";
+    }
+    div:hover
+    {
+        font-weight:bold;
+        background-color: yellow;
+    }
+    button:disabled
+    {
+        color:black;
+    }
+</style> 
+</head>
+<body>
+
+<h1>Choose your First pick!</h1>
+<p>Please choose one of the options</p>
+<!--https://ojji.wayful.com/2013/12/HTML-set-Two-Parallel-DIVs-columns.html-->
+<div style="width:200px; height:150px; border:1px solid red; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+    Please select this box if you prefer Option A<br><br><br><br>
+    <input type="checkbox" id="optionA" name="optionAcheck" value="optionA" checked>
+    <label for="subscribeNews">Option A?</label>
+    </div>
+    <div style="width:200px; height:150px; border:1px solid green; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+        Please select this box if you prefer Option B<br><br><br><br>
+        <input type="checkbox" id="optionA" name="optionAcheck" value="optionA">
+        <label for="subscribeNews">Option B?</label>
+    </div>
+</div><div style="clear:both"></div>
+
+<br>
+<br>
+<br>
+<br>
+
+<h1>Second pick!</h1>
+<p>Please choose one of the options and submit it</p>
+<div style="width:200px; height:150px; border:1px solid red; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+    Please select this box if you prefer Option A, because you are likely an all <b>A</b> student<br><br>
+    <input type="checkbox" id="optionA" name="optionAcheck" value="optionA">
+    <label for="subscribeNews">Option A?</label>
+    </div>
+    <div style="width:200px; height:150px; border:1px solid green; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+        Please select this box for Option B if you are a <b>loser </b>and always are behind A, land in second place (if not lower)<br>
+        <input type="checkbox" id="optionA" name="optionAcheck" value="optionA">
+        <label for="subscribeNews">Option B?</label>
+    </div>
+</div><div style="clear:both"></div>
+<br><br><br><br>
+<button class="button"
+        type="button"
+        style="width:415px; height:50px; text-align:center;"
+        onClick="this.disabled=true;">
+        Submit
+</button>
+</body>
+</html>
