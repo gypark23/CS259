@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!--https://www.plus2net.com/javascript_tutorial/checkbox-disable.php-->
+    <script type="text/javascript">
+        function chk_control(str) {
+        if(str=='dsb'){
+            document.getElementById('ck1').disabled=true;
+            document.getElementById('ck2').disabled=true;
+            document.getElementById('ck3').disabled=true;
+            document.getElementById('ck4').disabled=true;
+        }
+        }
+        </script>
 <title>Choose between two options!</title>
 <!--https://www.studytonight.com/css-howtos/how-to-style-text-button-with-css-->
 <style>
@@ -28,6 +39,10 @@
         font-weight:bold;
         background-color: yellow;
     }
+    button:disabled
+    {
+        background-color:black;
+    }
 </style> 
 </head>
 <body>
@@ -37,12 +52,12 @@
 <!--https://ojji.wayful.com/2013/12/HTML-set-Two-Parallel-DIVs-columns.html-->
 <div style="width:200px; height:150px; border:1px solid red; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
     Please select this box if you prefer Option A<br><br><br><br>
-    <input type="checkbox" id="optionA" name="optionAcheck" value="optionA" checked>
+    <input type="checkbox" id="ck1" name="optionAcheck" value="optionA" checked>
     <label for="subscribeNews">Option A?</label>
     </div>
     <div style="width:200px; height:150px; border:1px solid green; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
         Please select this box if you prefer Option B<br><br><br><br>
-        <input type="checkbox" id="optionA" name="optionAcheck" value="optionA">
+        <input type="checkbox" id="ck2" name="optionBcheck" value="optionB">
         <label for="subscribeNews">Option B?</label>
     </div>
 </div><div style="clear:both"></div>
@@ -56,19 +71,20 @@
 <p>Please choose one of the options and submit it</p>
 <div style="width:200px; height:150px; border:1px solid red; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
     Please select this box if you prefer Option A, because you are likely an all <b>A</b> student<br><br>
-    <input type="checkbox" id="optionA" name="optionAcheck" value="optionA">
+    <input type="checkbox" id="ck3" name="optionAcheck" value="optionA">
     <label for="subscribeNews">Option A?</label>
     </div>
     <div style="width:200px; height:150px; border:1px solid green; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
         Please select this box for Option B if you are a <b>loser </b>and always are behind A, land in second place (if not lower)<br>
-        <input type="checkbox" id="optionA" name="optionAcheck" value="optionA">
+        <input type="checkbox" id="ck4" name="optionBcheck" value="optionB">
         <label for="subscribeNews">Option B?</label>
     </div>
 </div><div style="clear:both"></div>
 <br><br><br><br>
 <button class="button"
         type="button"
-        style="width:415px; height:50px; text-align:center;">
+        style="width:415px; height:50px; text-align:center;"
+        onClick="this.disabled=true; chk_control('dsb')">
         Submit
 </button>
 </body>
