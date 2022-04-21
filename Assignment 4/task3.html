@@ -48,15 +48,19 @@
 <body>
 
 <h1>Choose your First pick!</h1>
-<p>Please choose one of the options</p>
+<p>From Wikipedia: there is a runaway trolley barreling down the railway tracks. Ahead, on the tracks, there are five people tied up and unable to move. The trolley is headed straight for them. You are standing some distance off in the train yard, next to a lever. If you pull this lever, the trolley will switch to a different set of tracks. However, you notice that there is one person on the side track. You have two (and only two) options:</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Trolley_Problem.svg/2880px-Trolley_Problem.svg.png"
+width = "600"
+height = "200">
+<br>
 <!--https://ojji.wayful.com/2013/12/HTML-set-Two-Parallel-DIVs-columns.html-->
-<div style="width:200px; height:150px; border:1px solid red; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
-    Please select this box if you prefer Option A<br><br><br><br>
-    <input type="radio" id="ck1" name="First" value="optionA" checked>
+<div style="width:200px; height:150px; border:1px solid blue; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+    Do nothing, in which case the trolley will kill the five people on the main track.<br><br>
+    <input type="radio" id="ck1" name="First" value="optionA">
     <label for="subscribeNews">Option A?</label>
     </div>
-    <div style="width:200px; height:150px; border:1px solid green; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
-        Please select this box if you prefer Option B<br><br><br><br>
+    <div style="width:200px; height:150px; border:1px solid purple; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+        Pull the lever, diverting the trolley onto the side track where it will kill one person.<br>
         <input type="radio" id="ck2" name="First" value="optionB">
         <label for="subscribeNews">Option B?</label>
     </div>
@@ -68,14 +72,14 @@
 <br>
 
 <h1>Second pick!</h1>
-<p>Please choose one of the options and submit it</p>
-<div style="width:200px; height:150px; border:1px solid red; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
-    Please select this box if you prefer Option A, because you are likely an all <b>A</b> student<br><br>
+<p>For the same question above, but differently worded; do you:</p>
+<div style="width:200px; height:150px; border:1px solid blue; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+    Refuse to murder the innocent by pulling the lever yourself, but rather let the fate decide<br>
     <input type="radio" id="ck3" name="Second" value="optionA">
     <label for="subscribeNews">Option A?</label>
     </div>
-    <div style="width:200px; height:150px; border:1px solid green; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
-        Please select this box for Option B if you are a <b>loser </b>and always are behind A, land in second place (if not lower)<br>
+    <div style="width:200px; height:150px; border:1px solid purple; float:left; margin-right:10px; text-align:center; font-family: Comic Sans MS;">
+        Murder the innocent by pulling the lever yourself who would've lived if you weren't there<br> 
         <input type="radio" id="ck4" name="Second" value="optionB">
         <label for="subscribeNews">Option B?</label>
     </div>
