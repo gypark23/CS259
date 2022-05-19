@@ -80,21 +80,14 @@ for i in range(4, 8):
     #convert kWh to Joules
     yvar.append(floatenergy * 3600000)
 
-print(xvar)
-print(yvar)
-
-#measured values
-"""
-xvar += [4, 5, 6, 7]
-yvar += [8.14438838744907, 33.1342306695855, 343.48695912150384, 1980.3329430123122]
-"""
-
 xvar_pred = []
 yvar_pred = []
 
+from math import e
+
 for i in range (7, 63):
     xvar_pred.append(i)
-    yvar_pred.append(402.96 * (i ** 2) - 1392.1 * i + 1049.4)    #polynomial equation derived from excel
+    yvar_pred.append(0.0037 * e ** (1.882 * i))    #exponential equation derived from excel
 
 plt.plot(xvar, yvar)
 plt.title("Consumption of Energy vs Number of Leading Zeroes (With Predictions)", fontsize = 8)
