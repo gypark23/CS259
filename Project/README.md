@@ -106,3 +106,8 @@ Supported Methods
       - None
     - Outputs:
       - outputs cleaned data as "*_cleaned.csv"
+
+Limits
+-----------------------------
+1. PII detection is far away from perfect
+   1. Common Regex is not the best way to filter PII, as shown in demo.ipynb. Some numerical data is filtered as PII
