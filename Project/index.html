@@ -1,0 +1,293 @@
+
+    <html>
+        <head>
+          <title>MyPageTitle</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+        </head>
+        <body>
+          <div id='content'>
+      <h1 id="autodc">Autodc</h1>
+  <p>Automatically clean data into a ML-runnable format </p>
+  <h2 id="installation">Installation</h2>
+  <p>Install via pip</p>
+  <pre><code>sudo pip install -r requirements.txt
+  </code></pre>
+  <p>Or manually install dependencies</p>
+  <h2 id="usage">Usage</h2>
+  <p>```python    <br />
+  import autodc</p>
+  <h1 id="data-to-be-cleaned">data to be cleaned</h1>
+  <p>data = pd.read<em>csv("data/loan</em>data.csv")</p>
+  <h1 id="fake-data-from-httpswwwbriandunningcomsample-data">fake data from https://www.briandunning.com/sample-data/</h1>
+  <p>data<em>2 = pd.read</em>csv("data/us-500.csv")</p>
+  <h1 id="data-cleaning">data cleaning</h1>
+  <p>autodc.clean("data/us-500.csv")<br />
+  autodc.clean("data/loan_data.csv")<br />
+  ```</p>
+  <p>See Demos for more usages </p>
+  <h2 id="demo">Demo</h2>
+  <p>You can run demo.py by running</p>
+  <pre><code>make demo
+  </code></pre>
+  <p>or manually running</p>
+  <pre><code>python3 demo.py
+  </code></pre>
+  <p>or viewing </p>
+  <pre><code>demo.ipynb
+  </code></pre>
+  <h2 id="supported-methods">Supported Methods</h2>
+  <ul>
+  <li>fernetEncrypt(string, key)<ul>
+  <li>Encrypts given a string and a string key. Returns an encrypted token. See https://cryptography.io/en/latest/fernet/</li>
+  <li>Parameters:<ul>
+  <li>string (string) - the string you want to encrypt</li>
+  <li>key (string) - the key to encrypt string</li>
+  <li>Returns:</li>
+  <li>token (bytes) - encrypted tokens in bytes</li></ul></li></ul></li>
+  <li>fernetDecrypt(token, key)<ul>
+  <li>Decrypts given an encrypted token and a string key. Returns a decrypted string. See https://cryptography.io/en/latest/fernet/</li>
+  <li>Parameters:<ul>
+  <li>token (string or bytes) - the encrypted token you want to encrypt</li>
+  <li>key (string) - the key that encrypted the string</li></ul></li>
+  <li>Returns:<ul>
+  <li>string (string) - decrypted string</li></ul></li></ul></li>
+  <li>columnDummyize(data, columns = [], param = 10)<ul>
+  <li>Make dummy variables for a given pd.Dataframe object. Columns can be specified by columns = []. If the column argument is not given, all categories are made into dummy variables. Any columns included in columns that have more than 2 but less than param unique values will be made into dummy variables.</li>
+  <li>Parameters:<ul>
+  <li>data (pd.Dataframe) - the dataframe object</li>
+  <li>columns = <a href="list"></a> - list of column names to be made into dummy variables. Defaults at all columns</li>
+  <li>param = 10 (int) - limit of unique values in columns. Columns that have more than 2 but less than param variables will be made into dummy variables.</li></ul></li>
+  <li>Returns:<ul>
+  <li>data (pd.Dataframe) - the modified dataframe object</li></ul></li></ul></li>
+  <li>deleteEmptyRow(data, columns = [], includeZero = False)<ul>
+  <li>Delete any rows that contain NaN</li>
+  <li>Parameters:<ul>
+  <li>data (pd.Dataframe) - the dataframe object</li>
+  <li>columns = <a href="list"></a> list of column names to be checked. If not specified, all columns are checked.</li>
+  <li>includeZero = False (bool) - whether to count 0 as NaN (true) or not (false)</li></ul></li>
+  <li>Returns:<ul>
+  <li>data (pd.Dataframe) - the modified dataframe object </li></ul></li></ul></li>
+  <li>encryptCols(data, columns = [])<ul>
+  <li>Encrypt columns using fernetEncrypt(), and print key to "keys.txt"</li>
+  <li>Parameters:<ul>
+  <li>data (pd.Dataframe) - the dataframe object</li>
+  <li>columns = <a href="list"></a> list of column names to be encrypted. If not specified, all columns are encrypted.</li></ul></li>
+  <li>Returns:<ul>
+  <li>data (pd.Dataframe) - the encrypted dataframe object</li></ul></li></ul></li>
+  <li>decryptCols(data, key, columns = [])<ul>
+  <li>Decrypt columns using fernetDecrypt() using the given key</li>
+  <li>Parameters:<ul>
+  <li>data (pd.Dataframe) - the dataframe object</li>
+  <li>columns = <a href="list"></a> list of column names to be decryted. If not specified, all columns are decrypted.</li></ul></li>
+  <li>Returns:<ul>
+  <li>data (pd.Dataframe) - the decrypted dataframe object</li></ul></li></ul></li>
+  <li>piiDetect(series)<ul>
+  <li>Detect whether a series includes PII as defined in Common Regex (https://github.com/madisonmay/CommonRegex/blob/master/README.md)</li>
+  <li>Parameters:<ul>
+  <li>series (pd.series) - the series object</li></ul></li>
+  <li>Returns:<ul>
+  <li>True if PII is detected as defined in Common Regex, false otherwise</li></ul></li></ul></li>
+  <li>clean(filename, param = 10)  <ul>
+  <li>Automated data cleaning function. Uses all functions above to automatically clean the data</li>
+  <li>Parameters:<ul>
+  <li>filename (string) - the filename to be cleaned</li>
+  <li>param = 10 (int) - the parameters for columnDummyize</li></ul></li>
+  <li>Returns:<ul>
+  <li>None</li></ul></li>
+  <li>Outputs:<ul>
+  <li>outputs cleaned data as "*_cleaned.csv"</li></ul></li></ul></li>
+  </ul>
+  <h2 id="limits">Limits</h2>
+  <ol>
+  <li>PII detection is far away from perfect</li>
+  <li>Common Regex is not the best way to filter PII, as shown in demo.ipynb. Some numerical data is filtered as PII</li>
+  </ol>
+  
+          </div>
+          <style type='text/css'>body {
+    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fdfdfd;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    padding: 30px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    body {
+      padding: 5px;
+    }
+  
+    body > #content {
+      padding: 0px 20px 20px 20px !important;
+    }
+  }
+  
+  body > #content {
+    margin: 0px;
+    max-width: 900px;
+    border: 1px solid #e1e4e8;
+    padding: 10px 40px;
+    padding-bottom: 20px;
+    border-radius: 2px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  hr {
+    color: #bbb;
+    background-color: #bbb;
+    height: 1px;
+    flex: 0 1 auto;
+    margin: 1em 0;
+    padding: 0;
+    border: none;
+  }
+  
+  /**
+   * Links
+   */
+  a {
+    color: #0366d6;
+    text-decoration: none; }
+    a:visited {
+      color: #0366d6; }
+    a:hover {
+      color: #0366d6;
+      text-decoration: underline; }
+  
+  pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+  }
+  
+  /**
+    * Code blocks
+    */
+  
+  code {
+    background-color: rgba(27,31,35,.05);
+    border-radius: 3px;
+    font-size: 85%;
+    margin: 0;
+    word-wrap: break-word;
+    padding: .2em .4em;
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  }
+  
+  pre > code {
+    background-color: transparent;
+    border: 0;
+    display: inline;
+    line-height: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    word-wrap: normal;
+    font-size: 100%;
+  }
+  
+  
+  /**
+   * Blockquotes
+   */
+  blockquote {
+    margin-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    border-left-width: 3px;
+    padding: 0 1em;
+    color: #828282;
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+  }
+  blockquote * {
+    font-style: normal !important;
+    letter-spacing: 0;
+    color: #6a737d !important;
+  }
+  
+  /**
+   * Tables
+   */
+  table {
+    border-spacing: 2px;
+    display: block;
+    font-size: 14px;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+  }
+  
+  th {
+    font-weight: 600;
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+  }
+  
+  tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+  }
+  
+  table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
+  
+  /**
+   * Others
+   */
+  
+  img {
+    max-width: 100%;
+  }
+  
+  p {
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #24292e; }
+  
+  ul {
+    margin-top: 0; }
+  
+  li {
+    color: #24292e;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5; }
+  
+  li + li {
+    margin-top: 0.25em; }
+  
+  * {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #24292e; }
+  
+  a:visited {
+    color: #0366d6; }
+  
+  h1, h2, h3 {
+    border-bottom: 1px solid #eaecef;
+    color: #111;
+    /* Darker */ }</style>
+        </body>
+      </html>
